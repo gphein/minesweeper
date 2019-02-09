@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang='en' dir='ltr'>
+<head>  
+  <title>Minesweeper</title>
+  <meta charset='utf8' />
+  <meta name="application-name" content="minesweeper" />
+  <meta name="description" content="web based minesweeper made by me" />
+  <meta name="keywords" content="games app web-based minesweeper" />
+  <link rel='stylesheet' type='text/css' href='/minesweeper.css'/>
+</head>
+
+<body>
+
+<h1>Minesweeper</h1>
+
+<div id='minesweeper'>
+	<div>
+		<button id='easy'>Easy</button>
+		<button id='medium'>Medium</button>
+		<button id='hard'>Hard</button>
+	</div>
+	<div id='grid'></div>
+	<h3 id='message'></h3>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+				integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+			  crossorigin="anonymous"></script>
+<script src='Grid.js'></script>
+<script src='initView.js'></script>
+<script src='refresh.js'></script>
+<script src='showMines.js'></script>
+<script src='resetBoard.js'></script>
+
+<script>
+	
+	$(function() {
+
+		window.game = new Grid(15, 15, 10);
+		initView();
+
+		$('#easy').on('click', function(evt) {
+			game = new Grid(15, 15, 10);
+			resetBoard(game);
+		});		
+
+		$('#medium').on('click', function(evt) {
+			game = new Grid(15, 15, 20);
+			resetBoard(game);
+		});		
+
+		$('#hard').on('click', function(evt) {
+			game = new Grid(15, 15, 35);
+			resetBoard(game);
+		});		
+
+	});
+
+</script>
+
+</body>
+</html>
